@@ -2,8 +2,9 @@ FROM cleveritcz/nginx:latest
 
 ARG WORDPRESS_VERSION
 
-RUN rpm -Uvh https://rpms.remirepo.net/enterprise/remi-release-9.rpm && \
-    microdnf install -y --setopt=install_weak_deps=0 php:remi-7.4 php-cli php-gd php-curl php-zip php-mbstring unzip epel-release && \
+RUN microdnf install -y --setopt=install_weak_deps=0 epel-release && \
+    rpm -Uvh https://rpms.remirepo.net/enterprise/remi-release-9.rpm && \
+    microdnf install -y --setopt=install_weak_deps=0 php:remi-7.4 php-cli php-gd php-curl php-zip php-mbstring unzip && \
     microdnf install -y --setopt=install_weak_deps=0 supervisor && mkdir /run/php-fpm && \
     rm -f /etc/nginx/conf.d/default.conf && \
     curl -o /tmp/wordpress.zip -fsSL https://wordpress.org/wordpress-$WORDPRESS_VERSION.zip && \
