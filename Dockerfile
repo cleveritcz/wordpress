@@ -15,4 +15,6 @@ RUN microdnf install -y --setopt=install_weak_deps=0 epel-release && \
 COPY conf/php-supervisord.ini /etc/supervisord.d/php-supervisord.ini
 COPY conf/wordpress.conf /etc/nginx/conf.d/wordpress.conf
 
+EXPOSE 80/tcp
+
 CMD ["/usr/bin/supervisord", "-n"]
