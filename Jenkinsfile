@@ -38,7 +38,7 @@ spec:
     stage('Build') {    
       steps {
         container(name: 'shell') {
-          sh '/kaniko/executor --dockerfile `pwd`/Dockerfile --context `pwd` --destination=cleveritcz/wordpress:latest --destination=cleveritcz/wordpress:$WORDPRESS_VERSION --build-arg WORDPRESS_VERSION=$WORDPRESS_VERSION'
+          sh '/kaniko/executor --dockerfile `pwd`/Dockerfile --context `pwd` --destination=cleveritcz/wordpress:latest-php74 --destination=cleveritcz/wordpress:$WORDPRESS_VERSION-php74 --build-arg WORDPRESS_VERSION=$WORDPRESS_VERSION'
         }
 
       }
