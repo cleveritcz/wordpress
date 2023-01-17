@@ -11,8 +11,9 @@ RUN microdnf install -y --setopt=install_weak_deps=0 epel-release && \
     rm -f /etc/nginx/conf.d/default.conf && \
     curl -o /tmp/wordpress.zip -fsSL https://wordpress.org/wordpress-$WORDPRESS_VERSION.zip && \
     unzip /tmp/wordpress.zip -d /usr/share/nginx/html && \
-    rm -f /tmp/wordpress.zip
+    rm -f /tmp/wordpress.zip /etc/php-fpm.d/www.conf
     
+COPY conf/www.conf /etc/php-fpm.d/www.conf
 COPY conf/php-supervisord.ini /etc/supervisord.d/php-supervisord.ini
 COPY conf/wordpress.conf /etc/nginx/conf.d/wordpress.conf
 
