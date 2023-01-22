@@ -13,12 +13,13 @@ RUN microdnf install -y --setopt=install_weak_deps=0 epel-release && \
     curl -o /tmp/wordpress.zip -fsSL https://wordpress.org/wordpress-$WORDPRESS_VERSION.zip && \
     unzip /tmp/wordpress.zip -d /usr/share/nginx/html && \
     rm -f /tmp/wordpress.zip /etc/php-fpm.d/www.conf && \
-    /usr/bin/cp -f /etc/supervisord.conf
+    rm -f /etc/supervisord.conf
     
 RUN curl -o composer-installer.php -fsSL https://getcomposer.org/installer && \
     php composer-installer.php --filename=composer --install-dir=/usr/local/bin && \
     rm -f composer-installer.php && composer global require wp-cli/wp-cli-bundle
     
+COPY conf/supervisord.conf /etc/supervisord.conf
 COPY conf/www.conf /etc/php-fpm.d/www.conf
 COPY conf/php-supervisord.ini /etc/supervisord.d/php-supervisord.ini
 COPY conf/wordpress.conf /etc/nginx/conf.d/wordpress.conf
