@@ -17,7 +17,7 @@ RUN microdnf install -y --setopt=install_weak_deps=0 epel-release && \
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
     chmod +x wp-cli.phar && mv wp-cli.phar /usr/sbin/wp
     
-COPY conf/init.sh /root/init.sh
+COPY conf/init.sh /init.sh
 #COPY conf/supervisord.conf /etc/supervisord.conf
 COPY conf/www.conf /etc/php-fpm.d/www.conf
 #COPY conf/php-supervisord.ini /etc/supervisord.d/php-supervisord.ini
@@ -27,4 +27,4 @@ WORKDIR /root
 
 ENV PATH="~/.composer/vendor/bin:$PATH"
 
-CMD ["/bin/bash", "init.sh"]
+CMD ["/bin/bash", "/init.sh"]
