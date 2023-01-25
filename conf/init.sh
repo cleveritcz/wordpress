@@ -10,8 +10,8 @@ shutdown() {
     exit 0
 }
 
-# Start PHP-FPM
-/usr/sbin/php-fpm -F
+# Start PHP-FPM in background
+/usr/sbin/php-fpm -F &
 
 # Start Nginx
 /usr/sbin/nginx -g "daemon off;"
