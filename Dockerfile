@@ -22,7 +22,6 @@ COPY conf/init.sh /root/init.sh
 COPY conf/www.conf /etc/php-fpm.d/www.conf
 #COPY conf/php-supervisord.ini /etc/supervisord.d/php-supervisord.ini
 COPY conf/wordpress.conf /etc/nginx/conf.d/wordpress.conf
-RUN chmod +x /root/init.sh
 
 WORKDIR /root
 
