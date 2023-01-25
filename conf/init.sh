@@ -10,8 +10,11 @@ shutdown() {
     exit 0
 }
 
-# Start Nginx and PHP-FPM
-/usr/sbin/nginx -g "daemon off;" && /usr/sbin/php-fpm -F
+# Start PHP-FPM
+/usr/sbin/php-fpm -F
+
+# Start Nginx
+/usr/sbin/nginx -g "daemon off;"
 
 # Register the shutdown function
 trap "shutdown" SIGINT SIGTERM
