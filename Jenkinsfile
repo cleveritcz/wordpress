@@ -47,6 +47,6 @@ spec:
   }
   environment {
     WORDPRESS_VERSION = '6.1.1'
-    PHP_VERSION = '8.0'
+    PHP_VERSION = '8.2'
   }
 }
