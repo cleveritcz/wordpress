@@ -23,6 +23,4 @@ COPY conf/wordpress.conf /etc/nginx/conf.d/wordpress.conf
 
 WORKDIR /root
 
-ENV PATH="~/.composer/vendor/bin:$PATH"
-
 CMD ["/init.sh"]
