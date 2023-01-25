@@ -12,7 +12,7 @@ RUN microdnf install -y --setopt=install_weak_deps=0 epel-release && \
     curl -o /tmp/wordpress.zip -fsSL https://wordpress.org/wordpress-$WORDPRESS_VERSION.zip && \
     unzip /tmp/wordpress.zip -d /usr/share/nginx/html && \
     rm -f /tmp/wordpress.zip /etc/php-fpm.d/www.conf /etc/php-fpm.conf && \
-    chown -R nginx:nginx /run/php-fpm
+    chown -R nginx:nginx /run/php-fpm /var/cache/nginx/
     
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
     chmod +x wp-cli.phar && mv wp-cli.phar /usr/sbin/wp
