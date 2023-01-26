@@ -1,4 +1,4 @@
-FROM cleveritcz/nginx:latest
+FROM cleveritcz/nginx:latest-rootless
 
 ARG WORDPRESS_VERSION
 ARG PHP_VERSION
